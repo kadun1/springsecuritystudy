@@ -1,0 +1,7 @@
+spring:
+  application:
+    name: springsecsection3
+  security:
+    user:
+      name: kadun
+      password: 12345
