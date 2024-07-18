@@ -6,6 +6,8 @@ import org.springframework.security.config.Customizer
 import org.springframework.security.config.annotation.web.builders.HttpSecurity
 import org.springframework.security.core.userdetails.User
 import org.springframework.security.core.userdetails.UserDetails
+import org.springframework.security.crypto.password.NoOpPasswordEncoder
+import org.springframework.security.crypto.password.PasswordEncoder
 import org.springframework.security.provisioning.InMemoryUserDetailsManager
 import org.springframework.security.web.SecurityFilterChain
 
@@ -29,10 +31,11 @@ class ProjectSecurityConfig {
     fun userDetailService(): InMemoryUserDetailsManager {
 
         /**
-         * Approach I where we use withDefaultPasswordEncoder() method
+         * Approach 1 where we use withDefaultPasswordEncoder() method
          * while creating the user details
          */
 
+        /*
         val admin: UserDetails = User.withDefaultPasswordEncoder()
             .username("admin")
             .password("12345")
@@ -45,5 +48,24 @@ class ProjectSecurityConfig {
             .build()
 
         return InMemoryUserDetailsManager(admin, user)
+        */
+
+        /**
+         * Approach 2 where we use NoOpPasswordEncoder Bean
+         */
+        val admin: UserDetails = User.withUsername("admin")
+            .password("12345")
+            .authorities("admin")
+            .build()
+        val user: UserDetails = User.withUsername("user")
+            .password("12345")
+            .authorities("read")
+            .build()
+        return InMemoryUserDetailsManager(admin, user)
+    }
+
+    @Bean
+    fun passwordEncoder(): PasswordEncoder {
+        return NoOpPasswordEncoder.getInstance()
     }
 }
