@@ -34,7 +34,6 @@ class ProjectSecurityConfig {
          * Approach 1 where we use withDefaultPasswordEncoder() method
          * while creating the user details
          */
-
         /*
         val admin: UserDetails = User.withDefaultPasswordEncoder()
             .username("admin")
