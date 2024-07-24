@@ -17,7 +17,6 @@ class ProjectSecurityConfig {
     @Bean
     @Throws(Exception::class)
     fun defaultSecurityFilterChain(http: HttpSecurity): SecurityFilterChain? {
-
         http.authorizeHttpRequests {
             it.requestMatchers("/myAccount", "/myBalance", "/myLoans", "/myCards").authenticated()
                 .requestMatchers("/notices", "/contact").permitAll()
