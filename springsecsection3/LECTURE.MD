@@ -11,4 +11,7 @@
   - isEnabled : 활성화되었는지 확인
 - UserDetailsService 인터페이스
   - loadUserByUsername : 사용자 이름을 기반으로 사용자 정보를 가져오는 메서드
+  - JdbcUserDetailsManager 에서는 미리 쿼리를 생성해두었다. (JdbcDaoImpl 참고)
+    - ddl 파일은 users.ddl 에 있음
+    - group manager 도 존재함
 - UserDetailsManager 는 유저를 생성, 수정하는 등 전반적 관리 (UserDetailsService 를 상속받음)
