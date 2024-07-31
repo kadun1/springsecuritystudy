@@ -65,10 +65,10 @@ class ProjectSecurityConfig {
         return InMemoryUserDetailsManager(admin, user)
     }*/
 
-    @Bean
-    fun userDetailsService(datasource: DataSource) : UserDetailsService {
-        return JdbcUserDetailsManager(datasource)
-    }
+//    @Bean
+//    fun userDetailsService(datasource: DataSource) : UserDetailsService {
+//        return JdbcUserDetailsManager(datasource)
+//    }
 
     /**
      * NoOpPasswordEncoder is not recommended for production usage
