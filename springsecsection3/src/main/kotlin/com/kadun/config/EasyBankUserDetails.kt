@@ -16,8 +16,8 @@ class EasyBankUserDetails(
 ): UserDetailsService {
 
     override fun loadUserByUsername(username: String?): UserDetails {
-        var userName: String? = null
-        var password: String? = null
+        var userName: String?
+        var password: String?
         val authorities = mutableListOf<GrantedAuthority>()
         val customer: List<Customer> = customerRepository.findByEmail(username!!)
         if (customer.isEmpty()) {
@@ -27,6 +27,6 @@ class EasyBankUserDetails(
             password = customer[0].pwd
             authorities.add(SimpleGrantedAuthority(customer[0].role))
         }
-        return User(username, password, authorities)
+        return User(userName, password, authorities)
     }
 }
