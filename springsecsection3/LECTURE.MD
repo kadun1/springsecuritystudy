@@ -15,3 +15,5 @@
     - ddl 파일은 users.ddl 에 있음
     - group manager 도 존재함
 - UserDetailsManager 는 유저를 생성, 수정하는 등 전반적 관리 (UserDetailsService 를 상속받음)
+
+- 기본적인 authenticate check 후 additionalAuthenticationChecks 메서드에서 비밀번호 검증
