@@ -17,3 +17,9 @@
 - UserDetailsManager 는 유저를 생성, 수정하는 등 전반적 관리 (UserDetailsService 를 상속받음)
 
 - 기본적인 authenticate check 후 additionalAuthenticationChecks 메서드에서 비밀번호 검증
+
+- Encoding 은 형식을 변환하는 것 (비밀이나 기밀성이 없음)
+  - UNICODE 와 BASE64가 대표적이다
+- Encryption 암호화나 기밀성을 보장하는 방식으로 데이터를 암호화
+  - 개발자가 비밀키를 이용해 쉽게 복호화할 수 있다
+- Hashing 은..
