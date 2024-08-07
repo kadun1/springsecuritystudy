@@ -22,9 +22,9 @@ class ProjectSecurityConfig {
     fun defaultSecurityFilterChain(http: HttpSecurity): SecurityFilterChain? {
         http.csrf().disable()
             .authorizeHttpRequests {
-            it.requestMatchers("/myAccount", "/myBalance", "/myLoans", "/myCards").authenticated()
-                .requestMatchers("/notices", "/contact", "/register").permitAll()
-        }
+                it.requestMatchers("/myAccount", "/myBalance", "/myLoans", "/myCards").authenticated()
+                    .requestMatchers("/notices", "/contact", "/register").permitAll()
+            }
             .formLogin(Customizer.withDefaults())
             .httpBasic(Customizer.withDefaults())
         return http.build()
@@ -33,10 +33,11 @@ class ProjectSecurityConfig {
     /*@Bean
     fun userDetailService(): InMemoryUserDetailsManager {
 
-        *//**
-         * Approach 1 where we use withDefaultPasswordEncoder() method
-         * while creating the user details
-         *//*
+        */
+    /**
+     * Approach 1 where we use withDefaultPasswordEncoder() method
+     * while creating the user details
+     *//*
         *//*
         val admin: UserDetails = User.withDefaultPasswordEncoder()
             .username("admin")
@@ -52,9 +53,10 @@ class ProjectSecurityConfig {
         return InMemoryUserDetailsManager(admin, user)
         *//*
 
-        *//**
-         * Approach 2 where we use NoOpPasswordEncoder Bean
-         *//*
+        */
+    /**
+     * Approach 2 where we use NoOpPasswordEncoder Bean
+     *//*
         val admin: UserDetails = User.withUsername("admin")
             .password("12345")
             .authorities("admin")

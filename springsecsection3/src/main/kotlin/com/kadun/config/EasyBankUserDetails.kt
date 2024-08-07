@@ -13,7 +13,7 @@ import org.springframework.stereotype.Service
 @Service
 class EasyBankUserDetails(
     private val customerRepository: CustomerRepository
-): UserDetailsService {
+) : UserDetailsService {
 
     override fun loadUserByUsername(username: String?): UserDetails {
         var userName: String?

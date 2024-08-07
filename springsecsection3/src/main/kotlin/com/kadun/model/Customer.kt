@@ -9,8 +9,8 @@ import org.hibernate.annotations.GenericGenerator
 @Entity
 class Customer(
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO, generator="native")
-    @GenericGenerator(name="native", strategy="native")
+    @GeneratedValue(strategy = GenerationType.AUTO, generator = "native")
+    @GenericGenerator(name = "native", strategy = "native")
     var id: Int,
     var email: String,
     var pwd: String,
