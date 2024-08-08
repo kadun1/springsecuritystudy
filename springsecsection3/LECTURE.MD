@@ -26,3 +26,11 @@
   - 저장된 패스워드와 입력한 패스워드를 비교한다(헤싱되어 있는)
   - 해싱은 시도할때마다 다른 해시 문자열을 반환한다.
   - 하지만 내부적으로는 같은 해시값을 가지게 한다.
+
+- PasswordEncoder 는 인터페이스이고, 6개의 구현체가 있다.
+  - NoOpPasswordEncoder : 비밀번호를 암호화하지 않는다. (테스트용)
+  - StandardPasswordEncoder : SHA-256 해싱 함수를 사용한다. (legacy)
+  - Pbkdf2PasswordEncoder : PBKDF2 해싱 함수를 사용한다. (무차별 대입 공격에 취약)
+  - BCryptPasswordEncoder : BCrypt 해싱 함수를 사용한다.
+  - SCryptPasswordEncoder : SCrypt 해싱 함수를 사용한다.
+  - Argon2PasswordEncoder : Argon2 해싱 함수를 사용한다.
