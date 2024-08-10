@@ -31,6 +31,7 @@
   - NoOpPasswordEncoder : 비밀번호를 암호화하지 않는다. (테스트용)
   - StandardPasswordEncoder : SHA-256 해싱 함수를 사용한다. (legacy)
   - Pbkdf2PasswordEncoder : PBKDF2 해싱 함수를 사용한다. (무차별 대입 공격에 취약)
-  - BCryptPasswordEncoder : BCrypt 해싱 함수를 사용한다.
-  - SCryptPasswordEncoder : SCrypt 해싱 함수를 사용한다.
-  - Argon2PasswordEncoder : Argon2 해싱 함수를 사용한다.
+  - BCryptPasswordEncoder : BCrypt 해싱 함수를 사용한다. (연산에 많은 시간을 소모)
+  - SCryptPasswordEncoder : SCrypt 해싱 함수를 사용한다. (BCryptPasswordEncoder + 메모리의 연산을 요구)
+  - Argon2PasswordEncoder : Argon2 해싱 함수를 사용한다. (SCryptPasswordEncoder + 다중 스레드를 요구)
+    SCryptPasswordEncoder 와 Argon2PasswordEncoder 는 성능 문제가 있다.
