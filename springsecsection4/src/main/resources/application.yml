@@ -1,0 +1,12 @@
+spring:
+  application:
+    name: springsecsection4
+  datasource:
+    url: jdbc:mysql://sql12.freemysqlhosting.net:${DB_PORT}/${DB_DATABASE}
+    username: ${DB_USER}
+    password: ${DB_PASSWORD}
+  jpa:
+    show-sql: true
+    properties:
+      hibernate:
+        format_sql: true
