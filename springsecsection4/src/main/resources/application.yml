@@ -2,7 +2,7 @@ spring:
   application:
     name: springsecsection4
   datasource:
-    url: jdbc:mysql://sql12.freemysqlhosting.net:${DB_PORT}/${DB_DATABASE}
+    url: jdbc:mysql://localhost:${DB_PORT}/${DB_DATABASE}
     username: ${DB_USER}
     password: ${DB_PASSWORD}
   jpa:
@@ -10,3 +10,4 @@ spring:
     properties:
       hibernate:
         format_sql: true
+        dialect: org.hibernate.dialect.MySQLDialect
