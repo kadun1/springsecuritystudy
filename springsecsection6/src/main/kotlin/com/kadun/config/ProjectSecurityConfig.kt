@@ -23,7 +23,7 @@ class ProjectSecurityConfig {
     fun defaultSecurityFilterChain(http: HttpSecurity): SecurityFilterChain? {
         http.csrf().disable()
             .authorizeHttpRequests {
-                it.requestMatchers("/myAccount", "/myBalance", "/myLoans", "/myCards").authenticated()
+                it.requestMatchers("/myAccount", "/myBalance", "/myLoans", "/myCards", "/user").authenticated()
                     .requestMatchers("/notices", "/contact", "/register").permitAll()
             }
             .formLogin(Customizer.withDefaults())

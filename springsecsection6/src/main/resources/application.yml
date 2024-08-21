@@ -1,6 +1,6 @@
 spring:
   application:
-    name: springsecsection5
+    name: springsecsection6
   datasource:
     url: jdbc:mysql://localhost:${DB_PORT}/${DB_DATABASE}?useSSL=false
     username: ${DB_USER}
