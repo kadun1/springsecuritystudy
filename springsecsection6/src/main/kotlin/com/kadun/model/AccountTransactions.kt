@@ -17,6 +17,9 @@ class AccountTransactions(
     @Column(name = "account_number")
     val accountNumber: Long,
 
+    @Column(name = "customer_id")
+    val customerId: Long,
+
     @Column(name = "transaction_dt")
     val transactionDt: Date,
 
@@ -28,5 +31,10 @@ class AccountTransactions(
 
     @Column(name = "transaction_amt")
     val transactionAmt: Int,
-) {
-}
+
+    @Column(name = "closing_balance")
+    val closingBalance: Int,
+
+    @Column(name = "create_dt")
+    val createDt: Date
+)
