@@ -25,10 +25,10 @@ class Notice(
     var noticeDetails: String,
 
     @Column(name = "notic_beg_dt")
-    var noticBegDt: String,
+    var noticBegDt: Date,
 
     @Column(name = "notic_end_dt")
-    var noticEndDt: String,
+    var noticEndDt: Date,
 
     @Column(name = "create_dt")
     var createDt: Date,

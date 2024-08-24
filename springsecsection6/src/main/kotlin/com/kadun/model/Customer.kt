@@ -22,5 +22,4 @@ class Customer(
     var role: String,
     @Column(name = "create_dt")
     var createDt: String,
-
-    )
+)
