@@ -1,11 +1,13 @@
 package com.kadun.model
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties
 import jakarta.persistence.Column
 import jakarta.persistence.Entity
 import jakarta.persistence.GeneratedValue
 import jakarta.persistence.GenerationType
 import jakarta.persistence.Id
 import org.hibernate.annotations.GenericGenerator
+import java.util.Date
 
 @Entity
 class Customer(
@@ -21,5 +23,5 @@ class Customer(
     var pwd: String,
     var role: String,
     @Column(name = "create_dt")
-    var createDt: String,
+    var createDt: Date?,
 )
