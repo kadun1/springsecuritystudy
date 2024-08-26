@@ -21,7 +21,9 @@ class Contact(
     var contactEmail: String,
     
     var subject: String,
+
+    var message: String,
     
     @Column(name = "create_dt")
-    var createDt: Date,
+    var createDt: Date?,
 )
