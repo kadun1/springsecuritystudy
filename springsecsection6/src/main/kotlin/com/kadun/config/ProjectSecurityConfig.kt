@@ -30,6 +30,7 @@ class ProjectSecurityConfig {
     @Bean
     @Throws(Exception::class)
     fun defaultSecurityFilterChain(http: HttpSecurity): SecurityFilterChain? {
+        // csrf token request handler
         val requestHandler = CsrfTokenRequestAttributeHandler()
         requestHandler.setCsrfRequestAttributeName("_csrf")
 
