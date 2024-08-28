@@ -34,7 +34,7 @@ class Loans(
     @Column(name = "amount_paid")
     var amountPaid: Int,
 
-    @Column(name = "outstanding_amout")
+    @Column(name = "outstanding_amount")
     var outstandingAmount: Int,
 
     @Column(name = "create_dt")

@@ -28,7 +28,7 @@ class Cards(
     @Column(name = "amount_used")
     var amountUsed: Int,
     
-    @Column(name = "available_mount")
+    @Column(name = "available_amount")
     var availableAmount: Int,
     
     @Column(name = "create_dt")
