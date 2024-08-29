@@ -47,13 +47,13 @@ class ProjectSecurityConfig {
                     config
                 }
             }.csrf {
-                it.csrfTokenRequestHandler(requestHandler).ignoringRequestMatchers("/contact", "/register")
+                it.csrfTokenRequestHandler(requestHandler).ignoringRequestMatchers("/register")
                     .csrfTokenRepository(CookieCsrfTokenRepository.withHttpOnlyFalse())
             }
             .addFilterAfter(CsrfCookieFilter(), BasicAuthenticationFilter::class.java)
             .authorizeHttpRequests {
                 it.requestMatchers("/myAccount", "/myBalance", "/myLoans", "/myCards", "/user").authenticated()
-                    .requestMatchers("/notices", "/contact", "/register").permitAll()
+                    .requestMatchers("/notices", "/register").permitAll()
             }
             .formLogin(Customizer.withDefaults())
             .httpBasic(Customizer.withDefaults())
