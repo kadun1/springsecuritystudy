@@ -1,5 +1,6 @@
 package com.kadun.config
 
+import com.kadun.model.Authority
 import com.kadun.repository.CustomerRepository
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.security.authentication.AuthenticationProvider
@@ -26,16 +27,21 @@ class EasyBankUsernamePwdAuthenticationProvider: AuthenticationProvider {
         val customer = customerRepository.findByEmail(username)
         if (customer.isNotEmpty()) {
             if (passwordEncoder.matches(pwd, customer[0].pwd)) {
-                val authorities = arrayListOf<GrantedAuthority>()
-                authorities.add(SimpleGrantedAuthority(customer[0].role))
-                return UsernamePasswordAuthenticationToken(username, pwd, authorities)
+                return UsernamePasswordAuthenticationToken(username, pwd, getGrantedAuthorities(customer[0].authorities))
             } else {
                 throw BadCredentialsException("Invalid password")
             }
         } else {
             throw BadCredentialsException("No user registered with this email")
         }
+    }
 
+    private fun getGrantedAuthorities(authorities: Set<Authority>): List<GrantedAuthority> {
+        val grantedAuthorities = mutableListOf<GrantedAuthority>()
+        authorities.forEach {
+            grantedAuthorities.add(SimpleGrantedAuthority(it.name))
+        }
+        return grantedAuthorities
     }
 
     override fun supports(authentication: Class<*>?): Boolean {
