@@ -20,6 +20,6 @@ class Accounts(
     @Column(name = "branch_address")
     val branchAddress: String,
 
-    @Column(name = "created_dt")
+    @Column(name = "create_dt")
     val createdDt: String,
 )
