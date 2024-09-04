@@ -8,3 +8,5 @@
     - Authority, Role 로 구분됨
     - GrantedAuthority 인터페이스가 있고, 이를 구현한 SimpleGrantedAuthority 클래스가 있음
     - authenticate() 에서 UsernamePasswordAuthenticationToken 객체를 생성할 때, 권한을 설정할 수 있음
+    - hasAuthority() 메서드로 권한을 확인할 수 있음
+    - hasAnyAuthority() 메서드로 여러 권한 중 하나라도 가지고 있는지 확인할 수 있음
