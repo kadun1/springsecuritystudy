@@ -56,6 +56,7 @@ class ProjectSecurityConfig {
 //                    .requestMatchers("myBalance").hasAnyAuthority("VIEWACCOUNT", "VIEWBALANCE")
 //                    .requestMatchers("/myLoans").hasAuthority("VIEWLOANS")
 //                    .requestMatchers("/myCards").hasAuthority("VIEWCARDS")
+
                 it.requestMatchers("/myAccount").hasRole("USER")
                     .requestMatchers("myBalance").hasAnyRole("USER", "ADMIN")
                     .requestMatchers("/myLoans").hasRole("USER")
