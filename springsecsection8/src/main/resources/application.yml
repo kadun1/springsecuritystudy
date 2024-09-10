@@ -1,0 +1,13 @@
+spring:
+  application:
+    name: springsecsection8
+  datasource:
+    url: jdbc:mysql://localhost:${DB_PORT}/${DB_DATABASE}?useSSL=false
+    username: ${DB_USER}
+    password: ${DB_PASSWORD}
+  jpa:
+    show-sql: true
+    properties:
+      hibernate:
+        format_sql: true
+        dialect: org.hibernate.dialect.MySQLDialect
