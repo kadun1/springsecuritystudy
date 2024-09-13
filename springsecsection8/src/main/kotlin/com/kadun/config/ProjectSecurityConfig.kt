@@ -1,6 +1,7 @@
 package com.kadun.config
 
 import com.kadun.filter.CsrfCookieFilter
+import com.kadun.filter.RequestValidationBeforeFilter
 import jakarta.servlet.http.HttpServletRequest
 import org.springframework.context.annotation.Bean
 import org.springframework.context.annotation.Configuration
@@ -51,12 +52,8 @@ class ProjectSecurityConfig {
                     .csrfTokenRepository(CookieCsrfTokenRepository.withHttpOnlyFalse())
             }
             .addFilterAfter(CsrfCookieFilter(), BasicAuthenticationFilter::class.java)
+            .addFilterBefore(RequestValidationBeforeFilter(), BasicAuthenticationFilter::class.java)
             .authorizeHttpRequests {
-//                it.requestMatchers("/myAccount").hasAuthority("VIEWACCOUNT")
-//                    .requestMatchers("myBalance").hasAnyAuthority("VIEWACCOUNT", "VIEWBALANCE")
-//                    .requestMatchers("/myLoans").hasAuthority("VIEWLOANS")
-//                    .requestMatchers("/myCards").hasAuthority("VIEWCARDS")
-
                 it.requestMatchers("/myAccount").hasRole("USER")
                     .requestMatchers("myBalance").hasAnyRole("USER", "ADMIN")
                     .requestMatchers("/myLoans").hasRole("USER")
