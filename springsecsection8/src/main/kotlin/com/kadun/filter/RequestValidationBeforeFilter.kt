@@ -13,9 +13,10 @@ import java.nio.charset.Charset
 import java.nio.charset.StandardCharsets
 import java.util.Base64
 
+const val AUTHENTICATION_SCHEME_BASIC = "Basic"
+
 class RequestValidationBeforeFilter: Filter {
 
-    private val AUTHENTICATION_SCHEME_BASIC = "Basic"
     private val credentialsCharset: Charset = StandardCharsets.UTF_8
 
     override fun doFilter(request: ServletRequest?, response: ServletResponse?, chain: FilterChain?) {
