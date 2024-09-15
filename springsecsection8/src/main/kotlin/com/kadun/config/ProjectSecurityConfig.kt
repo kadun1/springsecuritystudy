@@ -1,6 +1,7 @@
 package com.kadun.config
 
 import com.kadun.filter.AuthoritiesLoggingAfterFilter
+import com.kadun.filter.AuthoritiesLoggingAtFilter
 import com.kadun.filter.CsrfCookieFilter
 import com.kadun.filter.RequestValidationBeforeFilter
 import jakarta.servlet.http.HttpServletRequest
@@ -55,6 +56,7 @@ class ProjectSecurityConfig {
             .addFilterAfter(CsrfCookieFilter(), BasicAuthenticationFilter::class.java)
             .addFilterBefore(RequestValidationBeforeFilter(), BasicAuthenticationFilter::class.java)
             .addFilterAfter(AuthoritiesLoggingAfterFilter(), BasicAuthenticationFilter::class.java)
+            .addFilterAt(AuthoritiesLoggingAtFilter(), BasicAuthenticationFilter::class.java)
             .authorizeHttpRequests {
                 it.requestMatchers("/myAccount").hasRole("USER")
                     .requestMatchers("myBalance").hasAnyRole("USER", "ADMIN")
