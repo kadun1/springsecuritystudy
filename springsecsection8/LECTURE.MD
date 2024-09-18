@@ -26,4 +26,4 @@ Security filter chain: [
     AuthorizationFilter
 ]
 - 대부분의 프로젝트에서는 filter 는 before 나 after 를 사용 한다. (at은 잘 사용하지 않음)
-- filte r가 반드시 한번만 요청되어야 한다면 OncePerRequestFilter 를 상속받아서 구현한다. (권장)
+- filter 가 반드시 한번만 요청되어야 한다면 OncePerRequestFilter 를 상속받아서 구현한다. (권장)
